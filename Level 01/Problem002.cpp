@@ -15,9 +15,21 @@ int main()
     std::cout << "\t\tBy considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms." << std::endl;
     std::cout << std::endl;
 
-    float answer{0};
+    int answer{0};
 
     //YOUR CODE HERE
+    int lastValue{0};
+    int lastLastValue{0};
+
+    for (int i = 1; i < 4000000; i = lastValue + lastLastValue)
+    {
+        if (i % 2 != 0)
+        {
+            answer += i;
+        }
+        lastLastValue = lastValue;
+        lastValue = i;
+    }
 
     std::cout << "ANSWER: " << answer << std::endl;
 
